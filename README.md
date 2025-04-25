@@ -1,3 +1,4 @@
+HEAD
 # 📚 Bookstore Management System
 
 A Django web app for browsing, adding to cart, and managing books.
@@ -24,3 +25,6 @@ docker-compose up --build
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
+
+# Book_store
+>>>>>>> bf670a69e2fadf477c339adb28129fe31d25820c
