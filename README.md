@@ -26,5 +26,3 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 
-# Book_store
->>>>>>> bf670a69e2fadf477c339adb28129fe31d25820c
