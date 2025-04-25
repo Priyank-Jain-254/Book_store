@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Book</title>
+    <style>
+        body { font-family: Arial; background: #f0f0f0; padding: 30px; }
+        .form { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+        input, textarea, button { width: 100%; margin-bottom: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h2>Add New Book</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="author" placeholder="Author" required>
+            <input type="number" name="price" placeholder="Price" step="0.01" required>
+            <input type="number" name="stock" placeholder="Stock" required>
+            <textarea name="description" placeholder="Description" required></textarea>
+            <button type="submit">Add Book</button>
+        </form>
+        <a href="{% url 'admin-book-list' %}">← Back to Book List</a>
+    </div>
+</body>
+</html>

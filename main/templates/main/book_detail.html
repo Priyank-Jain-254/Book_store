@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ book.title }}</title>
+    <style>
+        body { font-family: Arial; padding: 30px; background: #f9f9f9; }
+        .details { background: white; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="details">
+        <h2>{{ book.title }}</h2>
+        <p>Author: {{ book.author }}</p>
+        <p>Price: ${{ book.price }}</p>
+        <p>{{ book.description }}</p>
+        <a href="{% url 'add-to-cart' book.id %}">Add to Cart</a> |
+        <a href="{% url 'book-list' %}">Back to List</a>
+    </div>
+</body>
+</html>

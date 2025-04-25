@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Book</title>
+    <style>
+        body { font-family: Arial; background: #f0f0f0; padding: 30px; }
+        .form { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+        input, textarea, button { width: 100%; margin-bottom: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h2>Edit Book</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" value="{{ book.title }}" required>
+            <input type="text" name="author" value="{{ book.author }}" required>
+            <input type="number" name="price" value="{{ book.price }}" step="0.01" required>
+            <input type="number" name="stock" value="{{ book.stock }}" required>
+            <textarea name="description" required>{{ book.description }}</textarea>
+            <button type="submit">Update Book</button>
+        </form>
+        <a href="{% url 'admin-book-list' %}">← Back to Book List</a>
+    </div>
+</body>
+</html>

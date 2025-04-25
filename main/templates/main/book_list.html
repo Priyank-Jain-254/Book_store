@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+    <style>
+        body { font-family: Arial; background: #f9f9f9; padding: 30px; }
+        .book { background: white; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .book h3 { margin: 0 0 5px; }
+    </style>
+</head>
+<body>
+    <h2>Book List</h2>
+
+    {% for book in books %}
+        <div class="book">
+            <h3>{{ book.title }}</h3>
+            <p>Author: {{ book.author }}</p>
+            <p>Price: ${{ book.price }}</p>
+            <a href="{% url 'book-detail' book.id %}">View Details</a>
+        </div>
+    {% endfor %}
+
+    <a href="{% url 'view-cart' %}">View Cart</a> |
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

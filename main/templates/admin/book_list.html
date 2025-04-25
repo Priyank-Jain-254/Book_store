@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Book List</title>
+    <style>
+        body { font-family: Arial; background: #f9f9f9; padding: 30px; }
+        .book { background: white; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Admin: Manage Books</h2>
+
+    <a href="{% url 'admin-book-add' %}">+ Add New Book</a>
+    <br><br>
+
+    {% for book in books %}
+        <div class="book">
+            <h3>{{ book.title }}</h3>
+            <p>Author: {{ book.author }}</p>
+            <p>Price: ${{ book.price }}</p>
+            <p>Stock: {{ book.stock }}</p>
+            <a href="{% url 'admin-book-edit' book.id %}">Edit</a> |
+            <a href="{% url 'admin-book-delete' book.id %}">Delete</a>
+        </div>
+    {% empty %}
+        <p>No books available.</p>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load cart_filters %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <style>
+        body { font-family: Arial; background: #f0f0f0; padding: 30px; }
+        .cart { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+        li { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <h2>Your Cart</h2>
+        <ul>
+            {% for book in books %}
+                <li>
+                    {{ book.title }} - ${{ book.price }} (Qty: {{ cart|get_item:book.id }})
+                    <a href="{% url 'remove-from-cart' book.id %}">Remove</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if total_price %}
+            <p><strong>Total:</strong> ${{ total_price }}</p>
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+        <a href="{% url 'book-list' %}">Continue Shopping</a>
+    </div>
+</body>
+</html>
